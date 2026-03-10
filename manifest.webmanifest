@@ -1,0 +1,9 @@
+{
+  "name": "Signal-to-Noise Dashboard",
+  "short_name": "S2N Dashboard",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0b1020",
+  "theme_color": "#0f172a",
+  "icons": []
+}

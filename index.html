@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signal-to-Noise Dashboard</title>
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>Signal-to-Noise Dashboard</h1>
+      <p class="subtitle">Capture ideas, track trends, and generate weekly intelligence briefings.</p>
+    </div>
+    <div class="topbar-actions">
+      <button id="exportBtn">Export JSON</button>
+      <label class="file-label">
+        Import JSON
+        <input id="importInput" type="file" accept=".json" />
+      </label>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="card span-2">
+      <h2>Add item</h2>
+      <form id="itemForm" class="grid-form">
+        <label>Title
+          <input id="title" required placeholder="e.g. Cold exposure debate in founder group" />
+        </label>
+        <label>Source
+          <select id="source">
+            <option>Signal</option>
+            <option>Newsletter</option>
+            <option>Twitter/X</option>
+            <option>Reddit</option>
+            <option>YouTube</option>
+            <option>Research paper</option>
+            <option>Podcast</option>
+            <option>Manual note</option>
+          </select>
+        </label>
+        <label>Topic
+          <input id="topic" required placeholder="e.g. HRV, Crypto, Marketing" />
+        </label>
+        <label>Date
+          <input id="date" type="date" required />
+        </label>
+        <label class="span-2">Summary / notes
+          <textarea id="summary" rows="4" placeholder="Paste a message, link note, transcript excerpt, or your own observation."></textarea>
+        </label>
+        <label>Importance (1-10)
+          <input id="importance" type="range" min="1" max="10" value="5" />
+          <span id="importanceValue" class="range-value">5</span>
+        </label>
+        <label>Noise (1-10)
+          <input id="noise" type="range" min="1" max="10" value="5" />
+          <span id="noiseValue" class="range-value">5</span>
+        </label>
+        <div class="span-2 form-actions">
+          <button type="submit">Add item</button>
+          <button type="button" id="autofillScoreBtn" class="secondary">Auto-score from text</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Bulk import from pasted text</h2>
+      <p class="muted">Paste several lines. One line = one item. Format: <code>Topic | Source | Title | Summary</code></p>
+      <textarea id="bulkInput" rows="8" placeholder="HRV | Signal | New protocol debate | Several users claim better recovery&#10;Crypto | Newsletter | ETF commentary | Strong reaction to inflows"></textarea>
+      <div class="form-actions">
+        <button id="bulkImportBtn">Import lines</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Overview</h2>
+      <div class="stats" id="stats"></div>
+    </section>
+
+    <section class="card span-2">
+      <h2>Filters</h2>
+      <div class="filters">
+        <input id="searchInput" placeholder="Search title or summary" />
+        <input id="topicFilter" placeholder="Filter by topic" />
+        <select id="sourceFilter">
+          <option value="">All sources</option>
+          <option>Signal</option>
+          <option>Newsletter</option>
+          <option>Twitter/X</option>
+          <option>Reddit</option>
+          <option>YouTube</option>
+          <option>Research paper</option>
+          <option>Podcast</option>
+          <option>Manual note</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="card span-2">
+      <h2>Trend dashboard</h2>
+      <div id="trendTable"></div>
+    </section>
+
+    <section class="card">
+      <h2>Weekly intelligence briefing</h2>
+      <div id="briefing" class="briefing"></div>
+      <div class="form-actions">
+        <button id="generateBriefingBtn">Generate briefing</button>
+      </div>
+    </section>
+
+    <section class="card span-3">
+      <h2>Items</h2>
+      <div id="itemsList" class="items-list"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
