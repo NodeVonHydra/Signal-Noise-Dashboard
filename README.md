@@ -1,8 +1,8 @@
 # Signal Noise Dashboard
 
-Signal Noise Dashboard is a small web application for tracking useful ideas and separating valuable information (**signal**) from useless information (**noise**).
+Signal Noise Dashboard is a small web application for capturing ideas and separating valuable information (**signal**) from the endless stream of useless chatter (**noise**).
 
-The app helps users capture ideas, rate them by importance, track topics over time, and generate weekly intelligence briefings.
+In a world where everyone is constantly sharing opinions, threads, takes, and “insights,” this tool helps you slow down, record what actually matters, rate it by importance, track recurring topics, and generate a weekly intelligence briefing from the chaos.
 
 ---
 
@@ -55,19 +55,6 @@ No backend is required.
 
 ---
 
-## Project structure
-
-```
-index.html
-app.js
-styles.css
-manifest.webmanifest
-sw.js
-README.md
-```
-
----
-
 ## Status
 
-This project is currently a **prototype** demonstrating a simple signal-to-noise intelligence dashboard.
+This project is currently a **vibe-coded prototype** demonstrating a simple signal-to-noise intelligence dashboard.
